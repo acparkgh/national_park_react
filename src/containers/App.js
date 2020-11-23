@@ -13,7 +13,8 @@ class App extends React.Component {
     this.state = {
       parks: [],
       stateCode: "",
-      parksFilteredByState: []
+      parksFilteredByState: [],
+      myTrips: []
     }
   }
 
@@ -44,8 +45,21 @@ class App extends React.Component {
   handleSubmit = (event) => {
     event.preventDefault()
     this.setState({ 
-      parksFilteredByState: this.state.parks.filter((park) => { 
-                              return park.state === this.state.stateCode} )
+      parksFilteredByState: this.state.parks.filter( (park) => { 
+                              return (
+                                park.state === this.state.stateCode
+                              )
+                            } )
+    })
+  }
+
+  handleMyTrip = () => {
+    this.setState({
+      myTrips: this.state.parks.filter( (park) => {
+                 return (
+                   park.user_id === 1
+                 )
+      } )
     })
   }
 
@@ -61,7 +75,7 @@ class App extends React.Component {
                   let parkObj = this.state.parks.find( (park) => {return (park.parkcode === parkCode)} ) 
                   // console.log(this.state.parks)
                 return (
-                  <ParkDetail parkDetail = {parkObj}/> 
+                  <ParkDetail parkObj = {parkObj} /> 
                 )
               } } 
               />
