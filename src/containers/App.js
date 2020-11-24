@@ -56,10 +56,20 @@ class App extends React.Component {
 
   handleMyTrip = () => {
   
-    const parksWithTrips = this.state.parks.filter( (park) => { 
+    fetch("http://localhost:3000/api/v1/parks")
+    .then((response) => {return response.json()})
+    .then((parksAarray) => {
+      return (
+        this.setState({
+          parks: parksAarray
+        })
+      )
+    })
+
+    let parksWithTrips = this.state.parks.filter( (park) => { 
                              return park.mytrips !== undefined && park.mytrips.length !== 0
                             } )
-  
+
     this.setState({
       myTrips: parksWithTrips.filter( (park) => {
                  return (
@@ -67,6 +77,28 @@ class App extends React.Component {
                  )
       } )
     })
+  }
+
+    
+  handleAddToMyPark = (addedPark) => {
+    // debugger
+    this.setState({
+      myTrips: [...this.state.myTrips, addedPark]
+    })
+
+    fetch('http://localhost:3000/api/v1/mytrips', {
+      method: "POST",
+      headers: {
+        "Accept": "application/json",
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        user_id: 1,
+        park_id: addedPark.id
+      })
+    })
+    // .then(resolution => resolution.json())
+    // .then(console.log)
     
   }
 
@@ -82,7 +114,11 @@ class App extends React.Component {
                   let parkObj = this.state.parks.find( (park) => {return (park.parkcode === parkCode)} ) 
                   // console.log(this.state.parks)
                 return (
-                  <ParkDetail parkObj = {parkObj} /> 
+                  <ParkDetail parkObj = {parkObj}
+                              parks = {this.state.parks}
+                              myTrips = {this.state.myTrips}
+                              handleAddToMyPark = {this.handleAddToMyPark}
+                  /> 
                 )
               } } 
               />
@@ -107,6 +143,7 @@ class App extends React.Component {
                       return (
                         <Home handleStateCodeChange = {this.handleStateCodeChange}
                               handleSubmit = {this.handleSubmit}
+                              parks = {this.state.parks}
                               parksFilteredByState = {this.state.parksFilteredByState}
                         />
                       )

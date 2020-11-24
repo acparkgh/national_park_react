@@ -11,7 +11,9 @@ class Home extends React.Component {
         <h1>*** This is "home" page/component - Top</h1>
         <FilterForm handleStateCodeChange = {this.props.handleStateCodeChange}
                     handleSubmit = {this.props.handleSubmit} />
-        <Parks parksFilteredByState = {this.props.parksFilteredByState} />
+        <Parks parksFilteredByState = {this.props.parksFilteredByState}
+               parks = {this.props.parks}
+        />
         <h1>*** This is "home" page/component - bottom</h1>
       </div>
     )
