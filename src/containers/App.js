@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Home from './Home';
 import About from '../components/About';
+import MyTrips from './MyTrips';
 import Navbar from '../components/Navbar';
 import ParkDetail from '../components/ParkDetail';
 
@@ -54,13 +55,19 @@ class App extends React.Component {
   }
 
   handleMyTrip = () => {
+  
+    const parksWithTrips = this.state.parks.filter( (park) => { 
+                             return park.mytrips !== undefined && park.mytrips.length !== 0
+                            } )
+  
     this.setState({
-      myTrips: this.state.parks.filter( (park) => {
+      myTrips: parksWithTrips.filter( (park) => {
                  return (
-                   park.user_id === 1
+                   (park.mytrips[0]).user_id === 1
                  )
       } )
     })
+    
   }
 
   render() {
@@ -79,7 +86,22 @@ class App extends React.Component {
                 )
               } } 
               />
+
               <Route path = "/about" component = {About} /> 
+
+              <Route path = "/mytrips" 
+                     render = { () => {
+                       return (
+                         <MyTrips handleMyTrip = {this.handleMyTrip}
+                                  myTrips = {this.state.myTrips}
+                                  parks = {this.state.parks}
+                         />
+                       )  
+                    
+                     } } 
+              /> 
+              
+
               <Route exact path = "/" 
                     render = { () => {
                       return (

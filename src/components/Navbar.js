@@ -10,7 +10,7 @@ class Navbar extends React.Component {
         <h1>National Park Adventure!</h1>
           <NavLink to = "/">Home</NavLink>
           <h3></h3>
-          <NavLink to = "/">MyTrips</NavLink>
+          <NavLink to = "/mytrips">MyTrips</NavLink>
           <h3></h3>
           <NavLink to = "/about">About</NavLink>          
 
