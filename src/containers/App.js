@@ -111,11 +111,15 @@ class App extends React.Component {
             <Switch>
               <Route path='/parks/:parkcode' render = { (routerProps) => {
                   let parkCode = routerProps.match.params.parkcode
-                  let parkObj = this.state.parks.find( (park) => {return (park.parkcode === parkCode)} ) 
+                  let parkObj = this.state.parks.find( (park) => {
+                                                         return (
+                                                           park.parkcode === parkCode
+                                                         )
+                                                      } ) 
                   // console.log(this.state.parks)
                 return (
                   <ParkDetail parkObj = {parkObj}
-                              parks = {this.state.parks}
+                              // parks = {this.state.parks}
                               myTrips = {this.state.myTrips}
                               handleAddToMyPark = {this.handleAddToMyPark}
                   /> 
