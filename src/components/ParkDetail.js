@@ -20,13 +20,16 @@ class ParkDetail extends React.Component {
         { this.props.parkObj.mytrips !== undefined && this.props.parkObj.mytrips.length !== 0 ?   
             this.props.parkObj.mytrips[0].comments.map( (comment) => {
               return (
-                <Comment comment = {comment.comment} />
+                <Comment key = {comment.id} 
+                         user = {this.props.parkObj.mytrips[0].user}  
+                         comment = {comment.comment} 
+                />
               )
             } ) 
           :
             null
         }
-        
+
         <img src = {this.props.parkObj.imageurl} alt = "park" />
       </div>
     )
