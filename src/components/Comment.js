@@ -1,0 +1,18 @@
+import React from 'react';
+
+class Comment extends React.Component {
+
+  render() {
+    return (
+      <div>
+        <em>*** Comment component ***</em>
+        <br></br>
+        {this.props.comment}
+        <br></br>
+      </div>
+    )
+  }
+
+}
+
+export default Comment;

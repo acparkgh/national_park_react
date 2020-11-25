@@ -1,4 +1,5 @@
 import React from 'react';
+import Comment from './Comment';
 
 
 class ParkDetail extends React.Component {
@@ -13,6 +14,11 @@ class ParkDetail extends React.Component {
           </button>
         <br></br>
         {this.props.parkObj.fullname}
+        {this.props.parkObj.mytrips[0].comments.map( (comment) => {
+           return (
+             <Comment comment = {comment.comment} />
+           )
+        } ) }
         <img src = {this.props.parkObj.imageurl} alt = "park" />
       </div>
     )

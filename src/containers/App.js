@@ -15,11 +15,14 @@ class App extends React.Component {
       parks: [],
       stateCode: "",
       parksFilteredByState: [],
-      myTrips: []
+      myTrips: [],
+      users: []
     }
   }
 
+
   componentDidMount() {
+
     fetch("http://localhost:3000/api/v1/parks")
       .then((response) => {return response.json()})
       .then((parksAarray) => {
@@ -29,6 +32,17 @@ class App extends React.Component {
           })
         )
       })
+      
+    fetch("http://localhost:3000/api/v1/users")
+      .then((response) => {return response.json()})
+      .then((usersArray) => {
+        return (
+          this.setState({
+            users: usersArray
+          })
+          )
+        })
+          
   }
 
   // async componentDidMount() {
@@ -119,7 +133,8 @@ class App extends React.Component {
                   // console.log(this.state.parks)
                 return (
                   <ParkDetail parkObj = {parkObj}
-                              // parks = {this.state.parks}
+                              parks = {this.state.parks}
+                              users = {this.state.users}
                               myTrips = {this.state.myTrips}
                               handleAddToMyPark = {this.handleAddToMyPark}
                   /> 
