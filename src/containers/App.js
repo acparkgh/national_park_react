@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Home from './Home';
 import About from '../components/About';
 import MyTrips from './MyTrips';
-import Navbar from '../components/Navbar';
+import NavigationBar from '../components/Navbar';
 import ParkDetail from '../components/ParkDetail';
 
 
@@ -121,7 +121,7 @@ class App extends React.Component {
       <div>
         <BrowserRouter>
           <div>
-            <Navbar />
+            <NavigationBar />
             <Switch>
               <Route path='/parks/:parkcode' render = { (routerProps) => {
                   let parkCode = routerProps.match.params.parkcode
