@@ -70,7 +70,7 @@ class App extends React.Component {
   }
 
   handleMyTrip = () => {
-  
+    // debugger
     fetch("http://localhost:3000/api/v1/parks")
     .then((response) => {return response.json()})
     .then((parksAarray) => {
