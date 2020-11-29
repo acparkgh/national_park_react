@@ -8,7 +8,7 @@ class NavigationBar extends React.Component {
 
   render() {
     return (
-      <Navbar expand = "lg" bg = "primary" variant = "dark">
+      <Navbar sticky="top" expand = "lg" bg = "primary" variant = "dark">
         <Navbar.Brand href = "/">National Park Adventure</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
