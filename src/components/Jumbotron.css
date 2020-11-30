@@ -1,0 +1,22 @@
+
+.jumbo {
+  background: url('../components/pics/parkImage1.jpg') no-repeat center center;
+  background-size: 100% 100%;
+  color: #ccc;
+  height: 350px;
+
+  width: 100%;
+  position: relative;
+  z-index: -2;
+}
+
+.overlay {
+  background-color: #000;
+  opacity: 0.6;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: -1;
+}

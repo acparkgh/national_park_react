@@ -49,10 +49,6 @@ class Park extends React.Component {
     )
   }
 
-
-
-
-
 }
 
 export default Park;

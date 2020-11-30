@@ -40,42 +40,40 @@ class ParkDetail extends React.Component {
       <Container>
       <Row>
 
-      <CardDeck>
-        <Card border="light" style={{ width: '50rem' }}>
-          <Card.Header>{this.props.parkObj.fullname}</Card.Header>
-          <Card.Img variant="top" src = {this.props.parkObj.imageurl} />
-          <Card.Body>
-            <Card.Title>{this.props.parkObj.fullname}</Card.Title>
-            <Card.Text>
-
-              { this.props.parkObj.mytrips !== undefined && this.props.parkObj.mytrips.length !== 0 ?
-                  this.props.parkObj.mytrips[0].comments.map( (comment) => {
-                    return (
-                      <Comment key = {comment.id} 
-                               user = {this.props.parkObj.mytrips[0].user}  
-                               comment = {comment.comment} 
-                      />
-                    )
-                  } ) 
-                :
-                  null
-              }
-
-            </Card.Text>
-
-            <Button variant="primary"
-                    onClick = { () => {
+        <CardDeck>
+          <Card border="light" style={{ width: '50rem' }}>
+            <Card.Header>{this.props.parkObj.fullname}</Card.Header>
+            <Card.Img variant="top" src = {this.props.parkObj.imageurl} />
+            <Card.Body>
+              <Card.Title>{this.props.parkObj.fullname}</Card.Title>
+              <Card.Text>
+                { this.props.parkObj.mytrips !== undefined && this.props.parkObj.mytrips.length !== 0 ?
+                    this.props.parkObj.mytrips[0].comments.map( (comment) => {
                       return (
-                        this.props.handleAddToMyPark(this.props.parkObj)
+                        <Comment key = {comment.id} 
+                                user = {this.props.parkObj.mytrips[0].user}  
+                                comment = {comment.comment} 
+                        />
                       )
-                    } }
-            >
-              Add this park to your trip
-            </Button>
-          </Card.Body>
-        </Card>
-      </CardDeck>
-        </Row>  
+                    } ) 
+                  :
+                    null
+                }
+              </Card.Text>
+              <Button variant="primary"
+                      onClick = { () => {
+                        return (
+                          this.props.handleAddToMyPark(this.props.parkObj)
+                        )
+                      } }
+              >
+                Add this park to your trip
+              </Button>
+            </Card.Body>
+          </Card>
+        </CardDeck>
+
+      </Row>  
       </Container>
 
 
