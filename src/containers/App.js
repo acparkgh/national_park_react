@@ -17,7 +17,10 @@ class App extends React.Component {
       parksFilteredByState: [],
       myTrips: [],
       users: [],
-      allMyTrips: []
+      allMyTrips: [],
+      user: null,
+      userLoggedIn: false,
+      username: ""
     }
   }
 
@@ -62,6 +65,29 @@ class App extends React.Component {
   //   this.setState({ parks })
   // }  
  
+  
+  handleUserNameChange = (event) => {
+    // debugger
+    this.setState({
+      username: event.target.value
+    })
+  }
+  
+  handleLoginSubmit = (event) => {
+    event.preventDefault()
+    // debugger
+    fetch(`http://localhost:3000/api/v1/users/${this.state.username}`)
+      .then(response => response.json())
+      .then(loggedInUser => {
+        return (
+          this.setState({
+            user: loggedInUser,
+            userLoggedIn: true
+          })
+        )
+      })
+  }
+
   handleStateCodeChange = (event) => {
     // debugger
     this.setState({
@@ -133,7 +159,11 @@ class App extends React.Component {
       <div>
         <BrowserRouter>
           <div>
-            <NavigationBar />
+            <NavigationBar handleUserNameChange = {this.handleUserNameChange}
+                           handleLoginSubmit = {this.handleLoginSubmit}
+                           loggedInUser = {this.state.user}
+                           userLoggedIn = {this.state.userLoggedIn}
+            />
             <Switch>
               <Route path='/parks/:parkcode' render = { (routerProps) => {
                   let parkCode = routerProps.match.params.parkcode
