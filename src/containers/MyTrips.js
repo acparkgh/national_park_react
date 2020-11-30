@@ -7,10 +7,15 @@ class MyTrips extends React.Component {
     // console.log("About", this.props)
     return (
       <div>
-        <h1>*** This is my Trips page/component!!!</h1>
+        
         <br></br>
-          <button onClick = { () => this.props.handleMyTrip() }>
-            Show all my trips:
+          <button className = "btn btn-primary" 
+                  onClick = { () => { 
+                    return (
+                      this.props.handleMyTrip()
+                    )
+                  } }>
+            Show all my trips
           </button>
         <br></br>
         <MyParks myTrips = {this.props.myTrips} />
