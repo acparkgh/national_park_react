@@ -51,8 +51,8 @@ class ParkDetail extends React.Component {
                     this.props.parkObj.mytrips[0].comments.map( (comment) => {
                       return (
                         <Comment key = {comment.id} 
-                                user = {this.props.parkObj.mytrips[0].user}  
-                                comment = {comment.comment} 
+                                 user = {this.props.parkObj.mytrips[0].user}  
+                                 comment = {comment.comment} 
                         />
                       )
                     } ) 
@@ -60,6 +60,7 @@ class ParkDetail extends React.Component {
                     null
                 }
               </Card.Text>
+
               <Button variant="primary"
                       onClick = { () => {
                         return (
@@ -69,6 +70,7 @@ class ParkDetail extends React.Component {
               >
                 Add this park to your trip
               </Button>
+              
             </Card.Body>
           </Card>
         </CardDeck>

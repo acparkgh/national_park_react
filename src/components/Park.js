@@ -32,10 +32,7 @@ class Park extends React.Component {
           <Card.Body>
             <Card.Title>{this.props.park.fullname}</Card.Title>
             <Card.Text>
-              Park Description goes here!!
-              Park Description goes here!!
-              Park Description goes here!!
-              Park Description goes here!!
+              {this.props.park.description}
             </Card.Text>
             <Link to={`/parks/${this.props.park.parkcode}`} 
                   className = "btn btn-primary"> 

@@ -16,7 +16,8 @@ class App extends React.Component {
       stateCode: "",
       parksFilteredByState: [],
       myTrips: [],
-      users: []
+      users: [],
+      allMyTrips: []
     }
   }
 
@@ -28,7 +29,8 @@ class App extends React.Component {
       .then((parksAarray) => {
         return (
           this.setState({
-            parks: parksAarray
+            parks: parksAarray,
+            myParks: []
           })
         )
       })
@@ -42,7 +44,16 @@ class App extends React.Component {
           })
           )
         })
-          
+
+    fetch("http://localhost:3000/api/v1/mytrips")
+      .then((response) => {return response.json()})
+      .then((allMyTripsArray) => {
+        return (
+          this.setState({
+            allMyTrips: allMyTripsArray
+          })
+          )
+        })      
   }
 
   // async componentDidMount() {
