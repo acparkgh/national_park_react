@@ -1,6 +1,7 @@
 import React from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import { Typeahead } from 'react-bootstrap-typeahead';
 
 class FilterForm extends React.Component {
 
@@ -17,7 +18,8 @@ class FilterForm extends React.Component {
       //     <input type="submit" />
       //   </form>
       // </div>
-
+      
+    <div>
       <Form onSubmit = { (event) => { return (this.props.handleSubmit(event)) } }>
         <Form.Group controlId="formStateCode">
           <Form.Label>Enter State Code</Form.Label>
@@ -27,23 +29,22 @@ class FilterForm extends React.Component {
                         onChange={ (event) => { 
                           return (
                             this.props.handleStateCodeChange(event)
-                          ) 
-                        } }
-          />
+                            ) 
+                          } }
+                          />
           {/* <Form.Text className="text-muted">
             Enter State Code
           </Form.Text> */}
         </Form.Group>
-
         <Button variant="primary" type="submit">
           Submit
         </Button>
+              
       </Form>
+    </div>  
 
     )
-
   }
-
 }
 
 export default FilterForm;

@@ -28,8 +28,8 @@ class Parks extends React.Component {
             {this.props.parksFilteredByState.map( (park) => {
               return (
                 <Park key = {park.parkcode}
-                park = {park}
-                parks = {this.props.parks} />
+                      park = {park}
+                      parks = {this.props.parks} />
                 )
               } )} 
               

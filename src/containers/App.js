@@ -13,7 +13,9 @@ class App extends React.Component {
     super()
     this.state = {
       parks: [],
+      parkNames: [],
       stateCode: "",
+      searchedPark: "",
       parksFilteredByState: [],
       myTrips: [],
       users: [],
@@ -33,7 +35,9 @@ class App extends React.Component {
         return (
           this.setState({
             parks: parksAarray,
-            myParks: []
+            myParks: [],
+            parkNames: parksAarray.map(park => park.fullname)
+
           })
         )
       })
@@ -107,6 +111,7 @@ class App extends React.Component {
   //   })
   // }
   
+
   handleSubmit = (event) => {
     // debugger
     // event.preventDefault()
@@ -168,6 +173,20 @@ class App extends React.Component {
     
   }
 
+  handleSearchedPark = (searchedPark) => {
+    // debugger
+    this.setState({
+      
+      searchedPark: searchedPark,
+      parksFilteredByState: this.state.parks.filter( (park) => {
+                              return (
+                                park.fullname === searchedPark[0]
+                              )
+                            }),
+    })
+
+  }
+
   render() {
     return (
       <div>
@@ -219,7 +238,11 @@ class App extends React.Component {
                         <Home handleStateCodeChange = {this.handleStateCodeChange}
                               handleSubmit = {this.handleSubmit}
                               parks = {this.state.parks}
+                              parkNames = {this.state.parkNames}
                               parksFilteredByState = {this.state.parksFilteredByState}
+                              searchedPark = {this.state.searchedPark}
+                              handleSearchedPark = {this.handleSearchedPark}
+                             
                         />
                       )
                     } } 
