@@ -95,12 +95,26 @@ class App extends React.Component {
     })
   }
 
+  // handleSubmit = (event) => {
+  //   debugger
+  //   event.preventDefault()
+  //   this.setState({ 
+  //     parksFilteredByState: this.state.parks.filter( (park) => { 
+  //                             return (
+  //                               park.state === this.state.stateCode
+  //                             )
+  //                           } )
+  //   })
+  // }
+  
   handleSubmit = (event) => {
-    event.preventDefault()
+    // debugger
+    // event.preventDefault()
+    alert(`National Parks in ${event.target.textContent}`)
     this.setState({ 
       parksFilteredByState: this.state.parks.filter( (park) => { 
                               return (
-                                park.state === this.state.stateCode
+                                park.state === event.target.dataset.name
                               )
                             } )
     })
