@@ -28,7 +28,11 @@ class MyParks extends React.Component {
           {this.props.myTrips.map( (park) => {
             return (
               <MyPark key = {park.parkcode}
-              park = {park} />
+                      park = {park}
+                      handleUserComment = {this.props.handleUserComment}
+                      handleUserCommentSubmit = {this.props.handleUserCommentSubmit}
+
+              />
               )
             } )} 
        

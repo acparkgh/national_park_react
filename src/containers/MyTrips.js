@@ -18,7 +18,10 @@ class MyTrips extends React.Component {
             Show all my trips
           </button>
         <br></br>
-        <MyParks myTrips = {this.props.myTrips} />
+        <MyParks myTrips = {this.props.myTrips}
+                 handleUserComment = {this.props.handleUserComment} 
+                 handleUserCommentSubmit = {this.props.handleUserCommentSubmit}
+        />
    
       </div>
     )

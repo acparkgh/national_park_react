@@ -1,6 +1,8 @@
 import React from 'react';
 import Card from 'react-bootstrap/Card';
 import CardDeck from 'react-bootstrap/CardDeck';
+import Form from 'react-bootstrap/Form';
+import CommentForm from './CommentForm';
 
 
 class MyPark extends React.Component {
@@ -36,9 +38,15 @@ class MyPark extends React.Component {
               <br></br>
               {this.props.park.state}
             </Card.Text>
+            <CommentForm handleUserComment = {this.props.handleUserComment} 
+                         handleUserCommentSubmit = {this.props.handleUserCommentSubmit}
+                         park = {this.props.park}
+                         
+            />
           </Card.Body>
         </Card>
       </CardDeck>
+
 
     )
   }

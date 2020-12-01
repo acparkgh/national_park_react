@@ -22,7 +22,8 @@ class App extends React.Component {
       allMyTrips: [],
       user: null,
       userLoggedIn: false,
-      username: ""
+      username: "",
+      userComment: ""
     }
   }
 
@@ -99,17 +100,15 @@ class App extends React.Component {
     })
   }
 
-  // handleSubmit = (event) => {
-  //   debugger
-  //   event.preventDefault()
-  //   this.setState({ 
-  //     parksFilteredByState: this.state.parks.filter( (park) => { 
-  //                             return (
-  //                               park.state === this.state.stateCode
-  //                             )
-  //                           } )
-  //   })
-  // }
+  handleUserComment = (event) => {
+    this.setState({
+      userComment: event.target.value
+    })
+  }
+
+  handleUserCommentSubmit = (park) => {
+    // debugger
+  }
   
 
   handleSubmit = (event) => {
@@ -225,6 +224,9 @@ class App extends React.Component {
                          <MyTrips handleMyTrip = {this.handleMyTrip}
                                   myTrips = {this.state.myTrips}
                                   parks = {this.state.parks}
+                                  handleUserComment = {this.handleUserComment}
+                                  handleUserCommentSubmit = {this.handleUserCommentSubmit}
+
                          />
                        )  
                     
