@@ -125,7 +125,7 @@ class App extends React.Component {
     this.setState({
       myTrips: parksWithTrips.filter( (park) => {
                  return (
-                   (park.mytrips[0]).user_id === 1
+                   (park.mytrips[0]).user_id === this.state.user.id
                  )
       } )
     })
@@ -145,7 +145,7 @@ class App extends React.Component {
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
-        user_id: 1,
+        user_id: this.state.user.id,
         park_id: addedPark.id
       })
     })
