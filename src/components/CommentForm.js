@@ -56,7 +56,7 @@ class CommentForm extends React.Component {
       </Form.Group>
 
       <Button variant="primary" 
-              type="submit" 
+              // type="submit" 
               onClick = { () => {
                 return (
                   this.props.handleUserCommentSubmit(this.props.park)

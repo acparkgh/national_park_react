@@ -108,6 +108,22 @@ class App extends React.Component {
 
   handleUserCommentSubmit = (park) => {
     // debugger
+    // event.preventDefault()
+
+    fetch('http://localhost:3000/api/v1/comments', {
+      method: "POST",
+      headers: {
+        "Accept": "application/json",
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        mytrip_id: park.mytrips[0].id,
+        comment: this.state.userComment
+        // mytrip_id: 61,
+        // comment: "hello",
+      })
+    })
+
   }
   
 
