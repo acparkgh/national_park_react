@@ -31,7 +31,6 @@ class MyParks extends React.Component {
                       park = {park}
                       handleUserComment = {this.props.handleUserComment}
                       handleUserCommentSubmit = {this.props.handleUserCommentSubmit}
-
               />
               )
             } )} 

@@ -23,7 +23,8 @@ class App extends React.Component {
       user: null,
       userLoggedIn: false,
       username: "",
-      userComment: ""
+      userComment: "",
+      
     }
   }
 
@@ -242,6 +243,9 @@ class App extends React.Component {
                                   parks = {this.state.parks}
                                   handleUserComment = {this.handleUserComment}
                                   handleUserCommentSubmit = {this.handleUserCommentSubmit}
+                                  tripStartDate = {this.state.tripStartDate}
+                                  handleStartDate = {this.handleStartDate}
+                                  
 
                          />
                        )  

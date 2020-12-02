@@ -21,6 +21,7 @@ class MyTrips extends React.Component {
         <MyParks myTrips = {this.props.myTrips}
                  handleUserComment = {this.props.handleUserComment} 
                  handleUserCommentSubmit = {this.props.handleUserCommentSubmit}
+               
         />
    
       </div>
