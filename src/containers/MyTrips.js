@@ -1,4 +1,5 @@
 import React from 'react';
+import SortMyTrips from '../components/SortMyTrips';
 import MyParks from './MyParks';
 
 class MyTrips extends React.Component {
@@ -17,6 +18,8 @@ class MyTrips extends React.Component {
                   } }>
             Show all my trips
           </button>
+        <br></br>
+        <SortMyTrips handleSortMyTrips = {this.props.handleSortMyTrips} />
         <br></br>
         <MyParks myTrips = {this.props.myTrips}
                  handleUserComment = {this.props.handleUserComment} 

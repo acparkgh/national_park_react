@@ -203,6 +203,26 @@ class App extends React.Component {
 
   }
 
+  handleSortMyTrips = (e) => {
+    // debugger
+    let type = e.target.value;
+    // debugger
+
+      if(type ==="byName") {
+        this.setState({
+          myTrips: this.state.myTrips.sort((a,b) => {
+            return a.fullname.localeCompare(b.fullname)
+          })
+        })
+      } else if(type ==="byDate") {
+        this.setState({
+          myTrips: this.state.myTrips.sort((a,b) => {
+            return a.mytrips[0].start_date.localeCompare(b.mytrips[0].start_date)
+          })
+        })
+      }
+  }
+
   render() {
     return (
       <div>
@@ -245,6 +265,7 @@ class App extends React.Component {
                                   handleUserCommentSubmit = {this.handleUserCommentSubmit}
                                   tripStartDate = {this.state.tripStartDate}
                                   handleStartDate = {this.handleStartDate}
+                                  handleSortMyTrips = {this.handleSortMyTrips}
                                   
 
                          />
