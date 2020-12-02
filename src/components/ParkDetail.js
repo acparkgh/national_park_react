@@ -5,6 +5,8 @@ import Row from 'react-bootstrap/Row';
 import Card from 'react-bootstrap/Card';
 import CardDeck from 'react-bootstrap/CardDeck';
 import Button from 'react-bootstrap/Button';
+import Accordion from 'react-bootstrap/Accordion';
+
 
 
 class ParkDetail extends React.Component {
@@ -52,7 +54,8 @@ class ParkDetail extends React.Component {
                       return (
                         <Comment key = {comment.id} 
                                  user = {this.props.parkObj.mytrips[0].user}  
-                                 comment = {comment.comment} 
+                                 comment = {comment.comment}
+                                 commentdate = {comment.created_at} 
                         />
                       )
                     } ) 
