@@ -30,34 +30,55 @@ class NavigationBar extends React.Component {
               {/* <Nav.Link href = "/about">About</Nav.Link> */}
               <Nav.Link href = "/about"></Nav.Link>
             </Nav.Item>
+
+              { this.props.userLoggedIn === true ?
+                  <Navbar.Text className="loggedin-user"> 
+                    Welcome {this.props.loggedInUser.screen_name} 
+                  </Navbar.Text> 
+                : null
+              }
+
+            <Nav.Item>
+              {/* <Nav.Link href = "/about">About</Nav.Link> */}
+              <Nav.Link href = "/about"></Nav.Link>
+            </Nav.Item>
+
           </Nav>
         </Navbar.Collapse>  
           
                   
-              <Form inline>
-                <FormControl type="text" 
-                             placeholder="Username" 
-                             className=" mr-sm-2"
-                             onChange={ (event) => { 
-                               return (
-                                 this.props.handleUserNameChange(event)
-                               ) 
-                             } }              
-                />
+          <Form inline>
+            {this.props.userLoggedIn === true ?
+               null : <FormControl type="text" 
+                                   placeholder="Username" 
+                                   className=" mr-sm-2"
+                                   onChange={ (event) => { 
+                                     return (
+                                       this.props.handleUserNameChange(event)
+                                     ) 
+                                   } }              
+                      />
+            }    
                 
-              </Form>
-              <Form inline
-                    onSubmit = { (event) => { 
-                      return (
-                        this.props.handleLoginSubmit(event)
-                      ) 
-                    } }
-              >
-                <FormControl type="password" placeholder="Password" className=" mr-sm-2" />
-                { this.props.userLoggedIn === false ?
-                <Button type="submit">Submit</Button> : <Button type="submit">Logout</Button>
-                }
-              </Form>
+          </Form>
+
+          <Form inline
+                onSubmit = { (event) => { 
+                  return (
+                    this.props.handleLoginSubmit(event)
+                  ) 
+                } }
+          >
+                
+            { this.props.userLoggedIn === true ?
+              null : <FormControl type="password" placeholder="Password" className=" mr-sm-2" />
+            }
+
+
+            { this.props.userLoggedIn === false ?
+              <Button type="submit">Login</Button> : <Button type="submit">Logout</Button>
+            }
+          </Form>
             
       </Navbar>
     )

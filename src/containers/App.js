@@ -232,6 +232,8 @@ class App extends React.Component {
                            handleLoginSubmit = {this.handleLoginSubmit}
                            loggedInUser = {this.state.user}
                            userLoggedIn = {this.state.userLoggedIn}
+                           user = {this.state.user}
+
             />
             <Switch>
               <Route path='/parks/:parkcode' render = { (routerProps) => {
@@ -248,6 +250,7 @@ class App extends React.Component {
                               users = {this.state.users}
                               myTrips = {this.state.myTrips}
                               handleAddToMyPark = {this.handleAddToMyPark}
+                              userLoggedIn = {this.state.userLoggedIn}
                   /> 
                 )
               } } 
@@ -285,7 +288,7 @@ class App extends React.Component {
                               parksFilteredByState = {this.state.parksFilteredByState}
                               searchedPark = {this.state.searchedPark}
                               handleSearchedPark = {this.handleSearchedPark}
-                             
+                                                           
                         />
                       )
                     } } 

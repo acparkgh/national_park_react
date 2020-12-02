@@ -44,7 +44,7 @@ class ParkDetail extends React.Component {
 
         <CardDeck>
           <Card border="light" style={{ width: '50rem' }}>
-            <Card.Header>{this.props.parkObj.fullname}</Card.Header>
+            <Card.Header>{this.props.parkObj.fullname}: <span>&nbsp;</span> {this.props.parkObj.city}, {this.props.parkObj.state} </Card.Header>
             <Card.Img variant="top" src = {this.props.parkObj.imageurl} />
             <Card.Body>
               <Card.Title>{this.props.parkObj.fullname}</Card.Title>
@@ -63,17 +63,17 @@ class ParkDetail extends React.Component {
                     null
                 }
               </Card.Text>
-
-              <Button variant="primary"
-                      onClick = { () => {
-                        return (
-                          this.props.handleAddToMyPark(this.props.parkObj)
-                        )
-                      } }
-              >
-                Add this park to your trip
-              </Button>
-              
+              {this.props.userLoggedIn !== true ?
+                 null : <Button variant="primary"
+                          onClick = { () => {
+                            return (
+                              this.props.handleAddToMyPark(this.props.parkObj)
+                            )
+                          } }
+                        >
+                          Add this park to your trip
+                        </Button>
+              }  
             </Card.Body>
           </Card>
         </CardDeck>

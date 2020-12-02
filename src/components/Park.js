@@ -27,10 +27,10 @@ class Park extends React.Component {
     return (
       <CardDeck>
         <Card border="light" style={{ width: '50rem' }}>
-          <Card.Header>{this.props.park.fullname}</Card.Header>
+          <Card.Header>{this.props.park.fullname}: <span>&nbsp;</span> {this.props.park.city}, {this.props.park.state} </Card.Header>
           <Card.Img variant="top" src = {this.props.park.imageurl} />
           <Card.Body>
-            <Card.Title>{this.props.park.fullname}</Card.Title>
+          <Card.Title>{this.props.park.fullname}</Card.Title>
             <Card.Text>
               {this.props.park.description}
             </Card.Text>
