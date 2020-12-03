@@ -220,6 +220,7 @@ class App extends React.Component {
   handleSortMyTrips = (e) => {
     // debugger
     let type = e.target.value;
+    // let type = e;
     // debugger
 
       if(type ==="byName") {
@@ -298,7 +299,7 @@ class App extends React.Component {
                                   tripStartDate = {this.state.tripStartDate}
                                   handleStartDate = {this.handleStartDate}
                                   handleSortMyTrips = {this.handleSortMyTrips}
-                                  
+                                  userLoggedIn = {this.state.userLoggedIn}
 
                          />
                        )  

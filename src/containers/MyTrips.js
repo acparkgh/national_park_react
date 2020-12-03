@@ -10,23 +10,33 @@ class MyTrips extends React.Component {
       <div>
         
         <br></br>
-          <button className = "btn btn-primary" 
-                  onClick = { () => { 
-                    return (
-                      this.props.handleMyTrip()
-                    )
-                  } }>
-            Show all my trips
-          </button>
+        { this.props.userLoggedIn === true ?
+
+            <button className = "btn btn-primary" 
+                    onClick = { () => { 
+                      return (
+                        this.props.handleMyTrip()
+                      )
+                    } }>
+              Show all my trips
+            </button>
+
+          : null
+        }
+
         <br></br>
-        <SortMyTrips handleSortMyTrips = {this.props.handleSortMyTrips} />
+        { this.props.userLoggedIn === true ?
+          <SortMyTrips handleSortMyTrips = {this.props.handleSortMyTrips} />
+
+          : null
+        }
+
         <br></br>
         <MyParks myTrips = {this.props.myTrips}
                  handleUserComment = {this.props.handleUserComment} 
                  handleUserCommentSubmit = {this.props.handleUserCommentSubmit}
-               
         />
-   
+    
       </div>
     )
   }

@@ -72,20 +72,20 @@ class MyPark extends React.Component {
 
       <CardDeck>
         <Card border="light" style={{ width: '50rem' }}>
-          <Card.Header>{this.props.park.fullname} 
-                        Trip Dates: {this.state.startDate} - {this.state.endDate}
-                        
+          <Card.Header as="h5">{this.props.park.fullname} <br></br>
+            Trip Dates: {"from "}{this.state.startDate} {"until "} {this.state.endDate}
           </Card.Header>
           <Card.Img variant="top" src = {this.props.park.imageurl} />
           <Card.Body>
             <Card.Title>{this.props.park.fullname}</Card.Title>
             <Card.Text>
-              {this.props.park.parkcode}
-              <br></br>
-              {this.props.park.fullname}
-              <br></br>
-              {this.props.park.state}
+              {/* {this.props.park.parkcode} */}
+              {/* <br></br> */}
+              {/* {this.props.park.fullname} */}
+              {/* <br></br> */}
+              {this.props.park.city},<span>&nbsp;</span>{this.props.park.state}
             </Card.Text>
+            <Card.Text as="h4">Choose travel dates:</Card.Text>
             <MyParkCalendar startDate = {this.state.startDate}
                             endDate = {this.state.endDate}
                             changeStartDate = {this.changeStartDate}
