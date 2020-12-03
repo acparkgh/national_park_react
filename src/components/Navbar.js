@@ -69,11 +69,9 @@ class NavigationBar extends React.Component {
                   ) 
                 } }
           >
-                
             { this.props.userLoggedIn === true ?
               null : <FormControl type="password" placeholder="Password" className=" mr-sm-2" />
             }
-
 
             { this.props.userLoggedIn === false ?
               <Button type="submit">Login</Button> : <Button type="submit">Logout</Button>

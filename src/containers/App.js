@@ -24,6 +24,8 @@ class App extends React.Component {
       userLoggedIn: false,
       username: "",
       userComment: "",
+      fetchedPark: null,
+      parkActivities: [],
       
     }
   }
@@ -63,6 +65,17 @@ class App extends React.Component {
           })
           )
         })      
+
+    fetch("http://localhost:3000/api/v1/activities")
+      .then((response) => {return response.json()})
+      .then((allMyTripsArray) => {
+        return (
+          this.setState({
+            allMyTrips: allMyTripsArray
+          })
+          )
+        })  
+
   }
 
   // async componentDidMount() {
@@ -110,7 +123,7 @@ class App extends React.Component {
   handleUserCommentSubmit = (park) => {
     // debugger
     // event.preventDefault()
-
+    alert(`Your comment for ${park.fullname} has been added`)
     fetch('http://localhost:3000/api/v1/comments', {
       method: "POST",
       headers: {
@@ -131,7 +144,7 @@ class App extends React.Component {
   handleSubmit = (event) => {
     // debugger
     // event.preventDefault()
-    alert(`National Parks in ${event.target.textContent}`)
+    // alert(`National Parks in ${event.target.textContent}`)
     this.setState({ 
       parksFilteredByState: this.state.parks.filter( (park) => { 
                               return (
@@ -169,6 +182,7 @@ class App extends React.Component {
     
   handleAddToMyPark = (addedPark) => {
     // debugger
+    alert(`${addedPark.fullname} has been added to MyTrips`)
     this.setState({
       myTrips: [...this.state.myTrips, addedPark]
     })
@@ -223,6 +237,20 @@ class App extends React.Component {
       }
   }
 
+  handleFetchImages = (clickedPark) => {
+    // console.log(clickedPark)
+    // debugger
+    fetch(`https://developer.nps.gov/api/v1/parks?api_key=EMPasi52WTBfeEF3PtLSHdhbK6uBhmtXl01Q0TcL&parkCode=${clickedPark.parkcode}`)
+    .then((response) => {return response.json()})
+    .then((fetchedPark) => {
+      return (
+        this.setState({
+          fetchedPark: fetchedPark
+        })
+        )
+      })  
+  }
+
   render() {
     return (
       <div>
@@ -251,6 +279,7 @@ class App extends React.Component {
                               myTrips = {this.state.myTrips}
                               handleAddToMyPark = {this.handleAddToMyPark}
                               userLoggedIn = {this.state.userLoggedIn}
+                              fetchedPark = {this.state.fetchedPark}
                   /> 
                 )
               } } 
@@ -288,6 +317,7 @@ class App extends React.Component {
                               parksFilteredByState = {this.state.parksFilteredByState}
                               searchedPark = {this.state.searchedPark}
                               handleSearchedPark = {this.handleSearchedPark}
+                              handleFetchImages = {this.handleFetchImages}
                                                            
                         />
                       )

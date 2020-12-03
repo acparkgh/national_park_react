@@ -29,7 +29,9 @@ class Parks extends React.Component {
               return (
                 <Park key = {park.parkcode}
                       park = {park}
-                      parks = {this.props.parks} />
+                      parks = {this.props.parks} 
+                      handleFetchImages = {this.props.handleFetchImages}
+                />
                 )
               } )} 
               

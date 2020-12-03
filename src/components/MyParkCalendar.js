@@ -10,7 +10,8 @@ class MyParkCalendar extends React.Component {
       <div>
        {/* <DatePicker selected={startDate} onChange={date => setStartDate(date)} /> */}
        {/* <DatePicker selected = {this.props.startDate}   */}
-       <DatePicker onChange = { (date) => {
+       <DatePicker selected={new Date()}
+                   onChange = { (date) => {
                      return (
                        this.props.changeStartDate(date, this.props.park)
                      )
@@ -19,7 +20,8 @@ class MyParkCalendar extends React.Component {
        <br>
        </br>
        {/* <DatePicker selected = {this.props.endDate} */}
-       <DatePicker onChange = { (date) => {
+       <DatePicker selected={new Date()}
+                   onChange = { (date) => {
                      return (
                        this.props.changeEndDate(date, this.props.park)
                      )

@@ -25,6 +25,7 @@ class Home extends React.Component {
 
         <Parks parksFilteredByState = {this.props.parksFilteredByState}
                parks = {this.props.parks}
+               handleFetchImages = {this.props.handleFetchImages}
         />
         
       </div>

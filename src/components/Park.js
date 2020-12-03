@@ -27,16 +27,22 @@ class Park extends React.Component {
     return (
       <CardDeck>
         <Card border="light" style={{ width: '50rem' }}>
-          <Card.Header>{this.props.park.fullname}: <span>&nbsp;</span> {this.props.park.city}, {this.props.park.state} </Card.Header>
+          <Card.Header as="h5">{this.props.park.fullname}: <span>&nbsp;</span> {this.props.park.city}, {this.props.park.state} </Card.Header>
           <Card.Img variant="top" src = {this.props.park.imageurl} />
           <Card.Body>
-          <Card.Title>{this.props.park.fullname}</Card.Title>
+          <Card.Title as="h4">{this.props.park.fullname}</Card.Title>
             <Card.Text>
               {this.props.park.description}
             </Card.Text>
             <Link to={`/parks/${this.props.park.parkcode}`} 
-                  className = "btn btn-primary"> 
-                  Click for more info
+                  className = "btn btn-primary"
+                  // onClick = { () => {
+                  //   return (
+                  //     this.props.handleFetchImages(this.props.park)
+                  //   )
+                  // } }      
+            >    
+                  Learn More
             </Link>
             {/* <Button variant="primary">More Info</Button> */}
           </Card.Body>
